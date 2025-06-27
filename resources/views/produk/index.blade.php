@@ -22,8 +22,10 @@
                 <td>{{ $produk->nama_produk }}</td>
                 <td>{{ $produk->harga }}</td>
                 <td>
-                    @if($produk->foto)
+                    @if($produk->foto && file_exists(public_path('storage/'.$produk->foto)))
                         <img src="{{ asset('storage/'.$produk->foto) }}" width="50">
+                    @else
+                        <span>Tidak ada foto</span>
                     @endif
                 </td>
                 <td>
